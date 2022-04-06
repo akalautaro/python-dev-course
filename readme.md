@@ -22,3 +22,22 @@ App con frases de distintas personas, con PostgreSQL como base de datos. La har�
 
 #### - Bootstrap es compatible con todos los navegadores modernos
 
+### Seteo variables de entorno de Flask
+
+####Pasos a seguir
+
+- pip install python-dotenv
+- Crear un archivo .flaskenv:
+  - FLASK_ENV=development # cada vez que realice un cambio se recargará en la página
+  - FLASK_APP=quotes.py # módulo donde se alojará el código Flask
+
+#### Endpoints
+Endpoints son los nombres de las view function, una view function es una función que responde a requests de la aplicación
+
+#### Templates
+Permiten separar código HTML de código Python. Flask busca los templates dentro de la carpeta templates del project folder.
+
+#### Ejecutar contenedor de Docker con PostgreSQL
+`(venv) D:\Lautaro\Python\python-dev-course>docker-compose up -d --remove-orphans`
+
+
