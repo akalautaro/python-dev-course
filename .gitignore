@@ -1,5 +1,6 @@
 venv/
-
+/Fav+Quotes+Project
 __pycache__/
 data
 .idea/
+.idea

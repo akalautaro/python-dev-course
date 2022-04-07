@@ -5,21 +5,20 @@ app = Flask(__name__)
 
 # Database online config: https://api.elephantsql.com/console/f445e272-1613-4d69-a526-468bbca2cfe9/details?
 # Tengo que crear una BD 'quotes' en el pgadmin, ver de hacer con docker-compose_bk.yml para trasladarla fácilmente
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:Admin123@localhost/quotes'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:Admin123@localhost:5455/quotes_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
 
-class Favquotes(db.Model):
-    """ Modelado de la base de datos
+class Quotes(db.Model):
+    """ Modelado de la base de datos. Para ejecutarla debería ejecutar un python con:
+    from quotes import db
+    db.create_all()
 
-    Attributes:
-        id (int): id de la cita
-        author (str): autor de la cita
-        quote (str): cita
+    o con flask_migrate. En mi caso la cree en Docker con el script init.sql y docker-compose
     """
-    id = db.Column(db.Integer, primary_key=True)
+    quote_id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(100))
     quote = db.Column(db.String(2000))
 
@@ -27,7 +26,8 @@ class Favquotes(db.Model):
 @app.route('/')
 def index():
     """ Función encargada de renderizar el index.html """
-    return render_template('index.html')
+    result = Quotes.query.order_by(Quotes.quote_id.desc()).all()
+    return render_template('index.html', result=result)
 
 
 # Endpoints
@@ -40,6 +40,10 @@ def quotes():
 def process():
     author = request.form['author']
     quote = request.form['quote']
+    quotedata = Quotes(author=author, quote=quote)
+    db.session.add(quotedata)
+    db.session.commit()
+
     return redirect(url_for('index'))
 
 

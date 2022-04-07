@@ -40,4 +40,12 @@ Permiten separar código HTML de código Python. Flask busca los templates dentr
 #### Ejecutar contenedor de Docker con PostgreSQL
 `(venv) D:\Lautaro\Python\python-dev-course>docker-compose up -d --remove-orphans`
 
+#### WSGI: protocolo de web servers para enviar request a web apps o frameworks escrito en Python
 
+#### Guinocrn: es un wsgi http server que facilita la comunicación entre la web app y el seb server (`pip install gunicorn`)
+
+#### Deploy de la app
+
+- Creo archivo Procfile
+- Creo archivo requirements.txt
+- Creo archivo .gitignore

@@ -3,12 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Favorite Quotes</title>
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" >
-
   </head>
 
   <body>
@@ -23,21 +20,33 @@
         <h1>Favorite Quotes</h1>
       </div>
       <!--for loop starts-->
-      {% for r in result %}
-      <div style ="color:#fff;background-color:blue">
-        <h1> {{ r.author }} </h1>
+      <section class="bg-light">
+      <div class="container py-0 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-lg-10 col-xl-8">
+          {% for r in result %}
+            <figure class="note note-primary p-4">
+              <blockquote class="blockquote">
+                <p class="pb-2">
+                  {{ r.quote }}
+                </p>
+              </blockquote>
+              <figcaption class="blockquote-footer mb-0">
+                {{ r.quote }}
+              </figcaption>
+            </figure>
+          {% endfor %}
+          </div>
+        </div>
       </div>
-       <div style ="color:#fff;font-size:28px;background-color:green">
-        <p> {{ r.quote }} </p>
-      </div>
-      {% endfor %}
+      </section>
 
       <!-- for loop ends here..-->
 
     </div> <!-- /container -->
     <br>
     <hr>
-    <h5>Python Developer: Python/Django/Flask/PostgreSQL/MySQL/API</h5>
+    <p>Python Developer: Python/Django/Flask/PostgreSQL/MySQL/API</p>
 
   </body>
 </html>
