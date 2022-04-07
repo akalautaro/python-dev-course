@@ -49,3 +49,11 @@ Permiten separar código HTML de código Python. Flask busca los templates dentr
 - Creo archivo Procfile
 - Creo archivo requirements.txt
 - Creo archivo .gitignore
+- Crear app en Heroku
+- Crear instancia de Postgres en Heroku y apuntar la app a la DATABASE_URI de Heroku
+- Crear tabla en Heroku
+  - python
+    - from quotes import db
+    - db.create_all()
+    - exit()
+- 

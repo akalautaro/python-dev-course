@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 # Database online config: https://api.elephantsql.com/console/f445e272-1613-4d69-a526-468bbca2cfe9/details?
 # Tengo que crear una BD 'quotes' en el pgadmin, ver de hacer con docker-compose_bk.yml para trasladarla fácilmente
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:Admin123@localhost:5455/quotes_db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:Admin123@localhost:5455/quotes_db'  # database en docker
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://fynuufotjfkcta:326854de53c459c009ba2c750bd82c16aca17e06a93b2b1e80679b102374609b@ec2-34-197-84-74.compute-1.amazonaws.com:5432/d7683i3jc4atns'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
