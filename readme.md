@@ -1,7 +1,13 @@
 ###### [PythonDevCourse-Udemy](https://www.udemy.com/course/python-developer-pythondjangoflaskpostgresqlmysqlapi/learn/lecture/25640228#overview)
 
+## App en Heroku
+[lau-quotesapp](https://lau-quotesapp.herokuapp.com/)
 
-###Pros y Contras de usar Flask
+##
+
+### Anotaciones varias
+
+Pros y Contras de usar Flask
 
 #### Pros
 - Fácil para empezar
@@ -25,7 +31,7 @@ App con frases de distintas personas, con PostgreSQL como base de datos. La har�
 
 ### Seteo variables de entorno de Flask
 
-####Pasos a seguir
+Pasos a seguir
 
 - pip install python-dotenv
 - Crear un archivo .flaskenv:
@@ -43,7 +49,7 @@ Permiten separar código HTML de código Python. Flask busca los templates dentr
 
 #### WSGI: protocolo de web servers para enviar request a web apps o frameworks escrito en Python
 
-#### Guinocrn: es un wsgi http server que facilita la comunicación entre la web app y el seb server (`pip install gunicorn`)
+#### Gunicorn: es un wsgi http server que facilita la comunicación entre la web app y el seb server (`pip install gunicorn`)
 
 #### Deploy de la app
 
